@@ -2,12 +2,7 @@
     position: absolute;
     top: 0%;
     left: 0%;
-    z-index: 2;
+    z-index: 5;
     width: 100%;
     padding: 4.5rem 0rem;
-
-    & .wrapper {
-        justify-content: space-between;
-        align-items: center;
-    }
-} 
+}

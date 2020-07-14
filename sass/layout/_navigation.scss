@@ -1,7 +1,9 @@
 .nav {
     display: flex;
-    width: 60%;
     justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    flex: 2;
 
     & ul {
         list-style: none;
@@ -15,6 +17,47 @@
     }
 
     & a {
-        display: inline-block;
+        position: relative;
+        overflow: hidden;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0%;
+            bottom: 0%;
+            height: 2px;
+            width: 100%;
+            background-color: $black;
+            transform: translateX(-100%);
+            transition: all .5s ease;
+        }
+
+        &:hover::after {
+            animation: navLink .5s ease;
+        }
+
+        &:not(:hover)::after {
+            animation: navLinkBack .5s ease;
+        }
+    }
+}
+
+@keyframes navLink {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes navLinkBack {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
     }
 }

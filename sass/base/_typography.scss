@@ -9,21 +9,60 @@ body {
     font-size: 1.6rem;
 }
 
+.loader {
+    &--text {
+        color: $white;
+        font-size: 2rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        user-select: none;
+        letter-spacing: 1px;
+        position: relative;
+        overflow: hidden;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0%;
+            bottom: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: $black;
+            animation-delay: .5s;
+            animation: loaderText 3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+            
+        }
+    }
+}
+
+@keyframes loaderText {
+    0% {
+        height: 0%;
+    }
+
+    100% {
+        height: 100%; 
+    }
+}
+
 a {
     display: inline-block;
     text-decoration: none;
 }
 
 .logo {
-    color: $white;
+    color: $black;
     font-size: 3.6rem;
     font-weight: 500;
+    margin-right: auto;
+    flex: 1;
 }
 
 .nav {
     & a {
-        color: $white;
+        color: $black;
         font-size: 2rem;
         font-weight: 400;
+        text-transform: capitalize;
     }
 }
